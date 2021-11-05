@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TicTacToe.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace TicTacToe.Controllers
 {
