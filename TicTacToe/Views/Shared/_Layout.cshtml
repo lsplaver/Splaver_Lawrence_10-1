@@ -15,19 +15,6 @@
         <main role="main">
             @RenderBody()
 
-            @if (TempData.Keys.Contains("message"))
-            {
-                <div class="row text-center p-2 text-white bg-success">
-                    <label><strong>(Game Result)</strong></label>
-                </div>
-                <div class="row text-center mt-2">
-                    <a asp-action="NewGame">New Game</a>
-                </div>
-            }
-            else
-            {
-                <h2 class="text-center">(Player)'s turn</h2>
-            }
         </main>
     </div>
 </body>

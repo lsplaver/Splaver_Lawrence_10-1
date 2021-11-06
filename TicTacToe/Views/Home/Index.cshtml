@@ -3,31 +3,71 @@
     ViewBag.Title = "TicTacToe";
 }
 
-<div class="container h-100">
-    <form asp-action="SetValue" method="post">
-        <div class="row">
-            @for (int x = 1; x < 4; x++)
-            {
+<div class="container">
+    @if (TempData.Keys.Contains("message"))
+    {
+        <div class="row text-center p-2 text-white bg-success">
+            <label><strong>(Game Result)</strong></label>
+        </div>
+        <div class="row text-center mt-2">
+            <a asp-action="NewGame">New Game</a>
+        </div>
+    }
+    else
+    {
+        <h2 class="text-center">@Model.CurrentPlayer's turn</h2>
+    }
+</div>
+<div class="container" style="height: 100%">
+    <div class="row">
+        @for (int x = 1; x <= 3; x++)
+        {
+            <form asp-action="SetValue" method="post" id="@x.ToString()" asp-route-id="@x.ToString()">
                 <div class="col-4 text-center">
-                    <button type="submit" id="@x" class="btn-outline-dark p-4">@*@Model.CurrentSquareValues[x].ToString()*@ @x</button>
+                    @if (Model.CurrentSquareValues[x.ToString()].ToString() == "")
+                    {
+                        <button type="submit" class="btn btn-outline-dark p-4 btn-lg btn-block text-center">@Model.CurrentSquareValues[x.ToString()].ToString()</button>
+                    }
+                    else
+                    {
+                        <button type="submit" class="btn btn-outline-dark p-4 btn-lg btn-block text-center" disabled>@Model.CurrentSquareValues[x.ToString()].ToString()</button>
+                    }
                 </div>
-            }
-        </div>
-        <div class="row">
-            @for (int x = 4; x < 7; x++)
-            {
-                <div class="col-4">
-                    <button type="submit" id="@x" class="btn-outline-dark p-4">@*@Model.CurrentSquareValues[x].ToString()*@ @x</button>
+            </form>
+        }
+    </div>
+    <div class="row">
+        @for (int x = 4; x <= 6; x++)
+        {
+            <form asp-action="SetValue" method="post" id="@x.ToString()" asp-route-id="@x.ToString()">
+                <div class="col-4 text-center">
+                    @if (Model.CurrentSquareValues[x.ToString()].ToString() == "")
+                    {
+                        <button type="submit" class="btn btn-outline-dark p-4 btn-lg btn-block text-center">@Model.CurrentSquareValues[x.ToString()].ToString()</button>
+                    }
+                    else
+                    {
+                        <button type="submit" class="btn btn-outline-dark p-4 btn-lg btn-block text-center" disabled>@Model.CurrentSquareValues[x.ToString()].ToString()</button>
+                    }
                 </div>
-            }
-        </div>
-        <div class="row">
-            @for (int x = 7; x < 10; x++)
-            {
-                <div class="col-4">
-                    <button type="submit" id="@x" class="btn-outline-dark p-4">@*@Model.CurrentSquareValues[x].ToString()*@ @x</button>
+            </form>
+        }
+    </div>
+    <div class="row">
+        @for (int x = 7; x <= 9; x++)
+        {
+            <form asp-action="SetValue" method="post" id="@x.ToString()" asp-route-id="@x.ToString()">
+                <div class="col-4 text-center">
+                    @if (Model.CurrentSquareValues[x.ToString()].ToString() == "")
+                    {
+                        <button type="submit" class="btn btn-outline-dark p-4 btn-lg btn-block text-center">@Model.CurrentSquareValues[x.ToString()].ToString()</button>
+                    }
+                    else
+                    {
+                        <button type="submit" class="btn btn-outline-dark p-4 btn-lg btn-block text-center" disabled>@Model.CurrentSquareValues[x.ToString()].ToString()</button>
+                    }
                 </div>
-            }
-        </div>
-    </form>
+            </form>
+        }
+    </div>
 </div>
