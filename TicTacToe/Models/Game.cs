@@ -186,7 +186,20 @@ namespace TicTacToe.Models
                 game.IsGameOver = true;
             }
 
+            int XAndOCount = 0;
+            for (int x = 1; x <= 9; x++)
+            {
+                if (game.CurrentSquareValues[x.ToString()].ToString() != "")
+                {
+                    XAndOCount++;
+                }
+            }
 
+            if (IsGameOver == false && XAndOCount == 9)
+            {
+                game.GameResult = "It's a tie!";
+                game.IsGameOver = true;
+            }
         }
     }
 }

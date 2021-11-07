@@ -18,9 +18,9 @@ namespace TicTacToe.Controllers
 
             if (game.IsGameOver)
             {
-                if (game.GameResult == "win")
+                if (game.GameResult == "X" || game.GameResult == "O")
                 {
-                    TempData["message"] = $"{game.CurrentPlayer} wins";
+                    TempData["message"] = $"{game.GameResult} wins";
                 }
                 else
                 {
@@ -30,7 +30,7 @@ namespace TicTacToe.Controllers
             return View(game);
         }
 
-        // [HttpPost]
+        //[HttpPost]
         public RedirectToActionResult NewGame()
         {
             GameSession session = new GameSession(HttpContext.Session);

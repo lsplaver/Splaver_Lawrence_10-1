@@ -4,15 +4,14 @@
 }
 
 <div class="container">
-    @if (Model.IsGameOver) //(TempData["message"].ToString() != null)
+    @if (TempData.Keys.Contains("message"))
     {
         <div class="row text-center p-2 text-white bg-success">
-            <label class="text-center"><strong>@Model.GameResult wins!</strong></label>
+            <label><strong>@TempData["message"]</strong></label>
         </div>
         <div class="row text-center mt-2">
-            <a asp-action="NewGame">New Game</a>
+            <a asp-action="NewGame" asp-route-id="">New Game</a>
         </div>
-        
     }
     else
     {
