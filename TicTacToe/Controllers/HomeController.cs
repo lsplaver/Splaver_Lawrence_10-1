@@ -30,7 +30,7 @@ namespace TicTacToe.Controllers
             return View(game);
         }
 
-        [HttpPost]
+        // [HttpPost]
         public RedirectToActionResult NewGame()
         {
             GameSession session = new GameSession(HttpContext.Session);
@@ -50,6 +50,8 @@ namespace TicTacToe.Controllers
             Game game = session.GetGame();
 
             game.SetValue(id);
+
+            game.GameOver(game);
 
             session.SetGame(game);
 

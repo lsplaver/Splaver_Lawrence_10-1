@@ -31,7 +31,7 @@ namespace TicTacToe.Models
             {
                 CurrentSquareValues.Add(x.ToString(), "");
             }
-            
+
             CurrentPlayer = "X";
             IsGameOver = false;
             Player1 = "X";
@@ -50,6 +50,143 @@ namespace TicTacToe.Models
             }
 
             CurrentPlayer = (CurrentPlayer == Player1) ? Player2 : Player1;
+        }
+
+        public void GameOver(Game game)
+        {
+            int SameValue = 0;
+            for (int x = 1, y = 1; x <= 3; x++)
+            {
+                if (game.CurrentSquareValues[x.ToString()].ToString() != "")
+                {
+                    if (game.CurrentSquareValues[x.ToString()].ToString() == game.CurrentSquareValues[y.ToString()].ToString())
+                    {
+                        SameValue++;
+                    }
+                }
+            }
+            if (SameValue == 3)
+            {
+                game.GameResult = game.CurrentSquareValues["1"].ToString();
+                game.IsGameOver = true;
+            }
+            SameValue = 0;
+            for (int x = 4, y = 4; x <= 6; x++)
+            {
+                if (game.CurrentSquareValues[x.ToString()].ToString() != "")
+                {
+                    if (game.CurrentSquareValues[x.ToString()].ToString() == game.CurrentSquareValues[y.ToString()].ToString())
+                    {
+                        SameValue++;
+                    }
+                }
+            }
+            if (SameValue == 3)
+            {
+                game.GameResult = game.CurrentSquareValues["4"].ToString();
+                game.IsGameOver = true;
+            }
+            SameValue = 0;
+            for (int x = 7, y = 7; x <= 9; x++)
+            {
+                if (game.CurrentSquareValues[x.ToString()].ToString() != "")
+                {
+                    if (game.CurrentSquareValues[x.ToString()].ToString() == game.CurrentSquareValues[y.ToString()].ToString())
+                    {
+                        SameValue++;
+                    }
+                }
+            }
+            if (SameValue == 3)
+            {
+                game.GameResult = game.CurrentSquareValues["7"].ToString();
+                game.IsGameOver = true;
+            }
+            SameValue = 0;
+            for (int x = 1, y = 1; x <= 7; x += 3)
+            {
+                if (game.CurrentSquareValues[x.ToString()].ToString() != "")
+                {
+                    if (game.CurrentSquareValues[x.ToString()].ToString() == game.CurrentSquareValues[y.ToString()].ToString())
+                    {
+                        SameValue++;
+                    }
+                }
+
+            }
+            if (SameValue == 3)
+            {
+                game.GameResult = game.CurrentSquareValues["7"].ToString();
+                game.IsGameOver = true;
+            }
+            SameValue = 0;
+            for (int x = 2, y = 2; x <= 8; x += 3)
+            {
+                if (game.CurrentSquareValues[x.ToString()].ToString() != "")
+                {
+                    if (game.CurrentSquareValues[x.ToString()].ToString() == game.CurrentSquareValues[y.ToString()].ToString())
+                    {
+                        SameValue++;
+                    }
+                }
+
+            }
+            if (SameValue == 3)
+            {
+                game.GameResult = game.CurrentSquareValues["7"].ToString();
+                game.IsGameOver = true;
+            }
+            SameValue = 0;
+            for (int x = 3, y = 3; x <= 9; x += 3)
+            {
+                if (game.CurrentSquareValues[x.ToString()].ToString() != "")
+                {
+                    if (game.CurrentSquareValues[x.ToString()].ToString() == game.CurrentSquareValues[y.ToString()].ToString())
+                    {
+                        SameValue++;
+                    }
+                }
+
+            }
+            if (SameValue == 3)
+            {
+                game.GameResult = game.CurrentSquareValues["7"].ToString();
+                game.IsGameOver = true;
+            }
+            SameValue = 0;
+            for (int x = 1, y = 1; x <= 9; x += 4)
+            {
+                if (game.CurrentSquareValues[x.ToString()].ToString() != "")
+                {
+                    if (game.CurrentSquareValues[x.ToString()].ToString() == game.CurrentSquareValues[y.ToString()].ToString())
+                    {
+                        SameValue++;
+                    }
+                }
+            }
+            if (SameValue == 3)
+            {
+                game.GameResult = game.CurrentSquareValues["1"].ToString();
+                game.IsGameOver = true;
+            }
+            SameValue = 0;
+            for (int x = 7, y = 7; x >= 3; x -= 2)
+            {
+                if (game.CurrentSquareValues[x.ToString()].ToString() != "")
+                {
+                    if (game.CurrentSquareValues[x.ToString()].ToString() == game.CurrentSquareValues[y.ToString()].ToString())
+                    {
+                        SameValue++;
+                    }
+                }
+            }
+            if (SameValue == 3)
+            {
+                game.GameResult = game.CurrentSquareValues["7"].ToString();
+                game.IsGameOver = true;
+            }
+
+
         }
     }
 }
