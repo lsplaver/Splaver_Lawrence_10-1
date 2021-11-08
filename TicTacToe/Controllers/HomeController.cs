@@ -44,7 +44,7 @@ namespace TicTacToe.Controllers
         }
 
         [HttpPost]
-        public RedirectToActionResult SetValue([FromRoute]string id)
+        public RedirectToActionResult SetValue([FromRoute]int id)
         {
             GameSession session = new GameSession(HttpContext.Session);
             Game game = session.GetGame();
