@@ -116,7 +116,7 @@ namespace TicTacToe.Models
             }
             if (SameValue == 3)
             {
-                game.GameResult = game.CurrentSquareValues["7"].ToString();
+                game.GameResult = game.CurrentSquareValues["1"].ToString();
                 game.IsGameOver = true;
             }
             SameValue = 0;
@@ -133,7 +133,7 @@ namespace TicTacToe.Models
             }
             if (SameValue == 3)
             {
-                game.GameResult = game.CurrentSquareValues["7"].ToString();
+                game.GameResult = game.CurrentSquareValues["2"].ToString();
                 game.IsGameOver = true;
             }
             SameValue = 0;
@@ -150,7 +150,7 @@ namespace TicTacToe.Models
             }
             if (SameValue == 3)
             {
-                game.GameResult = game.CurrentSquareValues["7"].ToString();
+                game.GameResult = game.CurrentSquareValues["3"].ToString();
                 game.IsGameOver = true;
             }
             SameValue = 0;
