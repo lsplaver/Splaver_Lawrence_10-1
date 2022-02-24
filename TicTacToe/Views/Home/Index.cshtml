@@ -22,17 +22,16 @@
     <div class="row justify-content-center text-center h-100 w-100">
         @for (int x = 0; x <= 2; x++)
         {
-            <form asp-action="SetValue" method="post"> <!-- asp-route-id="@x"> -->
+            <form asp-action="SetValue" method="post" asp-route-id="@x">
                 <div class="col text-center m-0">
                     @if (Model.CurrentSquareValues[x] == "")
                     {
-                        <button type="submit" class="btn btn-outline-dark text-center p-5 align-content-center" style="height: 10rem; width: 10rem" name="Game.SetValues()" value="@x">@Model.CurrentSquareValues[x]</button>
+                        <button type="submit" class="btn btn-outline-dark text-center p-5 align-content-center" style="height: 10rem; width: 10rem">@Model.CurrentSquareValues[x]</button>
                     }
                     else
                     {
                         <button type="submit" class="btn btn-outline-dark text-center p-5 align-content-center" style="height: 10rem; width: 10rem" disabled>@Model.CurrentSquareValues[x]</button>
                     }
-                    <input type="hidden" asp-for="SetValue(x)" />
                 </div>
             </form>
         }
